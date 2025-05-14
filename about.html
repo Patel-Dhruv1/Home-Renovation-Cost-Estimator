@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="output.css">
+    
+    <style>
+        nav li{
+            border-radius: 2px;
+        }
+        body{
+            background-color: #f7dcdc;
+        }
+    </style>
+</head>
+<body class="h-screen  flex flex-col items-center ">
+    <nav class="fixed top-0 w-full z-1 flex bg-gray-950 justify-between items-center">
+        <ul class="flex justify-around gap-7   items-center bg-gray-950 text-gray-300  p-3 ">
+            <li><img class="h-7 rounded-4xl"  src="./images/navImages/Logo.webp" alt="Logo"></li>
+            <li class="hover:bg-blue-500 rounded-2xl p-1  text-xl hover:cursor-not-allowed"><a href="index.html" class="hover:cursor-not-allowed">Home</a></li>
+            <li class="hover:bg-blue-500 rounded-2xl p-1 text-xl "><a href="estimateCost.html">Cost Estimate</a></li>
+           
+            <li class="hover:bg-blue-500 rounded-2xl p-1 text-xl "><a href="about.html">About Us</a></li>
+           
+            
+        </ul>
+        <div class="login-container text-gray-900 mr-7 text-xl">
+  <a href="login.html" id="auth-link" class="bg-blue-500 p-1 pl-2 pr-2 hover:bg-blue-700 rounded-md hover:cursor-pointer">
+    Login
+  </a>
+</div>
+    </nav>
+    <div class="about-us-container relative mt-24  flex flex-col justify-center items-center gap-8 ">
+        <p class="font-bold text-4xl">About Us</p>
+        <div class="team-container flex gap-6 text-gray-950 text-2xl flex-wrap">
+            <div class="w-72  bg-blue-400 transition duration-100 ease-in-out hover:scale-110  p-3 rounded-md cursor-pointer" style="height: 500px;"><div class="w-full  rounded-md " style="height: 350px;"><img src="./images/aboutImages/fiverr profile image.png" alt="" class="w-full h-full  rounded-md object-cover"></div><p class="text-xl">Name : Patel Dhruv</p>
+    <p class="text-xl">Experties : FrontEnd + BackEnd</p>
+    <p class="text-xl">Contact : +91 931321 5469
+    </p></div>
+            <div class="w-72  bg-blue-400 transition duration-100 ease-in-out hover:scale-110  p-3 rounded-md cursor-pointer" style="height: 500px;"><div class="w-full  rounded-md" style="height: 350px;"><img src="./images/aboutImages/WhatsApp Image 2025-05-09 at 21.09.24.jpeg" alt="" class="w-full h-full  rounded-md object-cover"></div >
+        <p class="text-xl">Name : Prajapati Dhruv</p>
+    <p class="text-xl">Experties : FrontEnd</p>
+    <p class="text-xl">Contact : +91 93749 21921</p>
+</div>
+            <div class="w-72  bg-blue-400  transition duration-100 ease-in-out hover:scale-110 p-3 rounded-md cursor-pointer" style="height: 500px;"><div class="w-full  rounded-md" style="height: 350px;"><img src="./images/aboutImages/WhatsApp Image 2025-05-09 at 21.08.50.jpeg" alt="" class="w-full h-full object-cover rounded-md"></div><p class="text-xl">Name : Sharma Kuldip</p>
+    <p class="text-xl">Experties : FrontEnd Tester</p>
+    <p class="text-xl">Contact : +91 79904 55125</p>.</div>
+           
+
+    </div>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('/check-auth')
+    .then(response => response.json())
+    .then(data => {
+      const authLink = document.getElementById('auth-link');
+      if (data.loggedIn) {
+        authLink.textContent = 'Logout';
+        authLink.href = '/logout';
+      } else {
+        authLink.textContent = 'Login';
+        authLink.href = 'login.html';
+      }
+    })
+    .catch(error => {
+      console.error('Auth check failed:', error);
+    });
+});
+</script>
+</html>

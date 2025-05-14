@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+    
+    
+    <style>
+      nav li {
+        border-radius: 2px;
+      }
+      body {
+        background-color: #f7dcdc;
+      }
+    </style>
+  </head>
+  <body class="h-screen flex flex-col items-center">
+    <nav
+      class="fixed top-0 w-full z-1 flex bg-gray-950 justify-between items-center"
+    >
+      <ul
+        class="flex justify-around gap-7 items-center bg-gray-950 text-gray-300 p-3"
+      >
+        <li>
+          <img
+            class="h-7 rounded-4xl"
+            src="./images/navImages/Logo.webp"
+            alt="Logo"
+          />
+        </li>
+        <li class="hover:bg-blue-500 rounded-2xl p-1 text-xl hover:cursor-not-allowed">
+          <a href="index.html" class="hover:cursor-not-allowed">Home</a>
+        </li>
+        <li class="hover:bg-blue-500 rounded-2xl p-1 text-xl">
+          <a href="estimateCost.html">Cost Estimate</a>
+        </li>
+        
+        <li class="hover:bg-blue-500 rounded-2xl p-1 text-xl">
+          <a href="about.html">About Us</a>
+        </li>
+      </ul>
+      <div class="login-container text-gray-900 mr-7 text-xl">
+        <a href="login.html" id="auth-link" class="bg-blue-500 p-1 pl-2 pr-2 hover:bg-blue-700 rounded-md hover:cursor-pointer">
+          Login
+        </a>
+    </nav>
+    <main class="w-full h-full">
+      <div
+        class="relative mt-12 grid grid-cols-12 grid-rows-12 p-4 w-full h-4/5 gap-3"
+      >
+        <div
+          class="col-start-1 col-end-9 row-start-1 row-end-5 rounded-md ring ring-blue-400 hover:ring-2 hover:ring-blue-600"
+        >
+          <img
+            class="h-full w-full object-cover rounded-md"
+            src="./images/HomePageGridImages/pexels-heyho-8134822.jpg"
+            alt="image"
+            loading="lazy"
+          />
+        </div>
+        
+        <div
+          class="col-start-9 col-end-13 row-start-1 row-end-13 rounded-md ring ring-blue-400 hover:ring-2 hover:ring-blue-600"
+        >
+          <img
+            class="h-full w-full object-cover rounded-md"
+            src="./images/HomePageGridImages/pexels-eduardo-romero-817034-2102546.jpg"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="col-start-1 col-end-5 row-start-5 row-end-13 rounded-md ring ring-blue-400 hover:ring-2 hover:ring-blue-600"
+        >
+          <img
+            class="h-full w-full object-cover rounded-md"
+            src="./images/HomePageGridImages/pexels-heyho-6489127.jpg"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div
+          class="col-start-5 col-end-9 row-start-5 row-end-9 flex flex-col justify-center items-center font-bold font-sans text-4xl text-center text-viole gap-2"
+        >
+          <p>Plan Your Home Renovation with Confidence</p>
+          <button
+            id="link-estimate-cost-page-btn"
+            class="bg-blue-500 font-medium text-2xl text-gray-800 p-2 rounded-md hover:bg-blue-600 hover:cursor-pointer"
+          >
+            <a href="estimateCost.html">Estimate Cost</a>
+          </button>
+        </div>
+        <div
+          class="col-start-5 col-end-7 row-start-9 row-end-13 rounded-md ring ring-blue-400 hover:ring-2 hover:ring-blue-600"
+        >
+          <img
+            class="h-full w-full object-cover rounded-md"
+            src="./images/HomePageGridImages/pexels-rosana-solis-385478-3718434.jpg"
+            alt=""
+          />
+        </div>
+        <div
+          class="col-start-7 col-end-9 row-start-9 row-end-13 rounded-md ring ring-blue-400 hover:ring-2 hover:ring-blue-600"
+        >
+          <img
+            class="h-full w-full object-cover rounded-md"
+            src="./images/HomePageGridImages/pexels-heyho-6508354.jpg"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('/check-auth')
+        .then(response => response.json())
+        .then(data => {
+          const authLink = document.getElementById('auth-link');
+          if (data.loggedIn) {
+            authLink.textContent = 'Logout';
+            authLink.href = '/logout';
+          } else {
+            authLink.textContent = 'Login';
+            authLink.href = 'login.html';
+          }
+        })
+        .catch(error => {
+          console.error('Auth check failed:', error);
+        });
+    });
+    </script>
+</html>

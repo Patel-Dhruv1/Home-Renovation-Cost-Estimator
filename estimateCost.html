@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+    
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+</style>
+    <style>
+      nav li {
+        border-radius: 2px;
+      }
+      body {
+        background-color: #f7dcdc;
+      }
+      form input,
+      form select {
+        width: 270px;
+      }
+
+      .estimation-table th,.estimation-table td
+       {
+        border: solid;
+        padding: 2px;
+        
+      }
+      .table-width {
+        width: 100%;
+      }
+      .hidden {
+        display: none;
+      }
+      .MessageFormat {
+        font-size: large;
+        font-weight: 500;
+      }
+      .estimation-table tr:hover{
+        background-color: rgb(210, 210, 235);
+      }
+       #content-container{
+            background-image: url(./images/CostEstimation.png);
+            background-size: cover;
+        }
+        #title{
+            font-family: "Caveat", cursive;
+  font-size: larger;
+  color: rgb(194, 183, 255);
+  font-weight:600;
+  font-style: normal;
+        }
+        #content p:nth-child(even){
+          background-color: rgb(208, 160, 72);
+        }
+        
+    </style>
+  </head>
+  <body class="h-screen  " >
+    <div id="mainScreen" class="h-full flex flex-col items-center pb-2 justify-center"><nav
+      class="fixed top-0 w-full z-1 flex bg-gray-950 justify-between items-center"
+    >
+      <ul
+        class="flex justify-around gap-7 items-center bg-gray-950 text-gray-300 p-3"
+      >
+        <li>
+          <img
+            class="h-7 rounded-4xl"
+            src="../images/navImages/Logo.webp"
+            alt="Logo"
+          />
+        </li>
+        <li class="hover:bg-blue-500 rounded-2xl p-1 text-xl">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="hover:bg-blue-500 rounded-2xl p-1 text-xl hover:cursor-not-allowed">
+          <a href="#" class="hover:cursor-not-allowed">Cost Estimate</a>
+        </li>
+        
+        <li class="hover:bg-blue-500 rounded-2xl p-1 text-xl">
+          <a href="about.html">About Us</a>
+        </li>
+      </ul>
+      
+    </nav>
+    <div class="formContainer w-4/5 ">
+      <form
+        action=""
+        id="cost-input-form"
+        class="flex flex-col items-center p-3 w-full"
+      >
+        <h1 class="text-3xl font-bold">Project Details</h1>
+        <div
+          id="project-details-box"
+          class="flex gap-5 text-2xl  justify-center flex-wrap"
+        >
+          <div id="input-typeof-renovation-box">
+            <label for="renovation-type">Enter Renovation Type</label><br />
+            <select
+              name="renovation-type"
+              id="renovation-type"
+              class="bg-gray-900 text-white p-1 rounded-md"
+            >
+              <option value="house">Full House</option>
+              <option value="kitchen">Kitchen</option>
+              <option value="bathroom">Bathroom</option>
+              <option value="living_room">Living Room</option>
+              <option value="bedroom">Bedroom</option>
+              <option value="hall">Hall</option>
+            </select>
+          </div>
+          <div id="input-room-area-box">
+            <label for="room-area">Enter Room area :</label>
+            <br />
+            <input
+              type="number"
+              id="room-area"
+              name="room-area"
+              placeholder="Room area"
+              class="bg-gray-900 text-white p-1 rounded-md"
+              required
+              min="1"
+            />Sq.ft
+          </div>
+          <div id="input-wall-area-box">
+            <label for="wall-area">Enter Wall Area :</label>
+            <br />
+            <input
+              type="number"
+              id="wall-area"
+              name="wall-area"
+              placeholder="Wall Area"
+              class="bg-gray-900 text-white p-1 rounded-md"
+              required
+              min="1"
+            />Sq.ft
+          </div>
+
+          <div id="input-urgency-of-project">
+            <label for="project-uregency">Select Project Uergency</label><br />
+            <select
+              name="project-uregency"
+              id="project-uregency"
+              class="bg-gray-900 text-white p-1 rounded-md"
+            >
+              <option value="normal">Normal</option>
+              <option value="urgent">Urgent(+2%)</option>
+            </select>
+          </div>
+        </div>
+        <h1 class="text-3xl font-bold relative mt-8">
+          Material and Design Preferences
+        </h1>
+        <div
+          id="material-design-box"
+          class="flex gap-8 text-2xl  justify-center flex-wrap"
+        >
+          <div id="input-flooring-type-box">
+            <label for="flooring-type">Flooring Material</label>
+            <br />
+            <select
+              name="flooring-type"
+              id="flooring-type"
+              class="bg-gray-900 text-white p-1 rounded-md"
+            >
+              <optgroup label="Tiles">
+                <option value="ceramic">Ceramic</option>
+                <option value="porcelain">Procelain</option>
+                <option value="vitrified">Vitrified</option>
+                <option value="mosaic">Mosaic</option>
+              </optgroup>
+              <optgroup label="Natural Stone">
+                <option value="marble">Marble</option>
+                <option value="granite">Granite</option>
+                <option value="slate">Slate</option>
+                <option value="sandstone">Sandstone</option>
+                <option value="travertine">Travertine</option>
+              </optgroup>
+              <optgroup label="Wood">
+                <option value="solid_hardwood">Solid Hardwood</option>
+
+                <option value="laminate">Laminate Flooring</option>
+                <option value="bamboo">Bamboo Flooring</option>
+                <option value="engineered_wood">Engineered Wood</option>
+              </optgroup>
+              <optgroup label="Resilient & Synthetic Flooring">
+                <option value="vinyle">Vinyle Flooring</option>
+                <option value="linoleum">Linoleum Flooring</option>
+                <option value="rubber">Rubber Flooring</option>
+                <option value="Epoxy">Epoxy Flooring</option>
+              </optgroup>
+            </select>
+          </div>
+          <div id="input-wall-finish-type-box">
+            <label for="wall-finish-type"> Wall Finish Material </label><br />
+            <select
+              name="wall-finish-type"
+              id="wall-finish-type"
+              class="bg-gray-900 text-white p-1 rounded-md"
+            >
+              <optgroup label="Paint Finishes">
+                <option value="emulsion">Emulsion Paint</option>
+                <option value="distemper">Distemper Paint</option>
+                <option value="textured">Textured Paint</option>
+                <option value="enamel">Enamel Paint</option>
+              </optgroup>
+              <optgroup label="Wallpaper Types">
+                <option value="vinyle">Vinyle Wallpaper</option>
+                <option value="fabric">Fabric Wallpaper</option>
+                <option value="metallic">Metallic Wallpaper</option>
+              </optgroup>
+              <optgroup label="Wall Panels">
+                <option value="wood">Wood Panels</option>
+                <option value="pvc">PVC Panels</option>
+                <option value="acoustic">Acoustic Panels</option>
+              </optgroup>
+            </select>
+          </div>
+          <div id="input-ceiling-type-box">
+            <label for="ceiling-type">Ceiling Material</label><br />
+            <select
+              name="ceiling-type"
+              id="ceiling-type"
+              class="bg-gray-900 text-white p-1 rounded-md"
+            >
+              <optgroup label="Standard Ceilings">
+                <option value="flat">Flat Ceiling</option>
+                <option value="drop">Drop Ceiling</option>
+              </optgroup>
+              <optgroup label="Decorative Ceilings">
+                <option value="coffered">Coffered Ceiling</option>
+                <option value="tray">Tray Ceiling</option>
+                <option value="beam">Beam Ceiling</option>
+              </optgroup>
+              <optgroup label="Material Based Ceilings">
+                <option value="pop">POP(Plaster Of Paris)</option>
+                <option value="gypsum">Gypsum Ceiling</option>
+                <option value="wooden">Wooden Ceiling</option>
+                <option value="metal">Metal Ceiling</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <h1 class="text-3xl font-bold relative mt-8">Labor & Service Cost</h1>
+        <div
+          id="labor-service-cost-box"
+          class="flex gap-8 text-2xl  flex-wrap justify-center"
+        >
+          <div id="input-labor-quality">
+            <label for="labor-quality">Labor Quality</label>
+            <br />
+            <select
+              name="labor-quality"
+              id="labor-quality"
+              class="bg-gray-900 text-white p-1 rounded-md"
+            >
+              <option value="basic">Basic</option>
+              <option value="standard">Standard</option>
+              <option value="premium">Premium</option>
+            </select>
+          </div>
+          <div id="input-electrical-work">
+            <label for="electrical-work">Electrical Work</label>
+            <br />
+            <select
+              name="electrical-work"
+              id="electrical-work"
+              class="bg-gray-900 text-white p-1 rounded-md"
+            >
+              <option value="basic">Basic</option>
+              <option value="standard">Standard</option>
+              <option value="premium">Premium</option>
+              <option value="nothing">Nothing</option>
+            </select>
+          </div>
+          <div id="input-electric-work-point">
+            <label for="num-electrical-point"
+              >Number of Electrical Points</label
+            >
+            <br />
+            <input
+              type="number"
+              min="0"
+              name="num-electrical-point"
+              id="num-electrical-point"
+              placeholder='Enter "0" for nothing'
+              class="bg-gray-900 text-white p-1 rounded-md"
+              required
+            />
+          </div>
+          <div id="input-plumbering-work">
+            <label for="plumbering-work-material">Plumbering Work</label><br />
+            <select
+              name="plumbering-work-material"
+              id="plumbering-work-material"
+              class="bg-gray-900 text-white p-1 rounded-md"
+            >
+              <optgroup label="Pipe Material">
+                <option value="pvc">PVC</option>
+                <option value="cpvc">CPVC</option>
+                <option value="copper">Copper</option>
+                <option value="nothing">Nothing</option>
+              </optgroup>
+            </select>
+          </div>
+          <div id="input-plumbering-point">
+            <label for="num-plumbering-point">Number of Plumbering Points</label
+            ><br />
+            <input
+              type="number"
+              id="num-plumbering-point"
+              name="num-plumbering-point"
+              placeholder="Enter '0' for nothing"
+              class="bg-gray-900 text-white p-1 rounded-md"
+              required
+              min="0"
+            />
+          </div>
+        </div>
+        <h1 class="text-3xl relative mt-8 font-bold">Budget</h1>
+        <div id="budget-box" class="flex text-2xl  justify-center">
+          <div id="input-budget-box">
+            <label for="budget">Enter Budget</label>
+            <br />
+            <input
+              type="number"
+              id="budget"
+              name="budget"
+              placeholder="Enter Max Budget"
+              class="bg-gray-900 text-white p-1 rounded-md appearance-none"
+              required
+            />₹
+          </div>
+        </div>
+        <button
+          id="submit-form"
+          type="submit"
+          class="bg-blue-500 w-40 relative mt-7 rounded-md font-medium p-1 text-2xl  hover:bg-blue-700"
+        >
+          Estimate
+        </button>
+      </form>
+    </div>
+    
+    </div>
+   
+    
+    <div id="pamphlet" class="w-4/5 md:max-w-3/10  hidden  flex-col items-center border-2 rounded-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1">
+       <div id="title" class=" w-full text-center bg-gray-900 ">
+           find estimation of your dream renovation
+       </div>
+       <div id="content-container" class="w-full flex flex-col items-center">
+           <div id="content" class="grid grid-cols-12 grid-rows-12 gap-2 w-4/5 p-3 relative mt-24 ">
+          
+       </div>
+       <div id="buttons" class="p-2">
+           
+       </div>
+       <div id="finalMessage" class="relative mt-5 p-2 bg-blue-300 mb-1 rounded-md">You Have Enough Budget</div>
+       </div>
+   </div>
+  </body>
+ 
+
+
+  <script src="estimateCostScript.js"></script>
+
+</html>
